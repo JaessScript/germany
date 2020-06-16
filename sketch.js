@@ -39,7 +39,7 @@ function draw() {
 	noStroke();
 	rectMode(CENTER);
 	fill(255);
-	rect(100, 150, 30 + windowWidth/5, 30 + windowHeight/3);
+	rect(100, 150, windowWidth/4, (2*windowHeight)/5);
 	fill(0);
 	text(s, 100, 150, windowWidth/5, windowHeight/3);
 }
