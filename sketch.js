@@ -46,6 +46,7 @@ function draw() {
 	noStroke();
 	rectMode(CENTER);
 	fill(255);
+	// Maybe instead of windowWidth, make the width and height proportional to the fontsize?
 	rect(x, y, windowWidth / 3, (2 * windowHeight) / 5);
 	fill(0);
 	textSize(fontsize);
