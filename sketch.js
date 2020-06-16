@@ -37,7 +37,7 @@ function setup() {
 function draw() {
 	let s = "GERMANY IS THE 3rd WORLD'S MOST SURVEILLED COUNTRIES WITH 5.2 MILLIONS CCTVs!";
 	noStroke();
-	rect(15, 30, windowWidth/4, windowHeight/3);
+	rect(20, 30, windowWidth/4, windowHeight/3);
 	fill(0);
 	text(s, 30, 30, windowWidth/5, windowHeight/3);
 	ellispe(30, 30, 50, 50);
