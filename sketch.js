@@ -15,12 +15,16 @@ function setup() {
 	canvas.style('z-index', '-1');
 
 	next = select('#next');
-	next.position(windowWidth / 2, 5);
+	// next.position(windowWidth / 2, 5);
 	next.style('font-size', '1.5em');
 	setInterval(changeColor, 500);
+	next.style('position', 'absolute');
+	next.style('top', '0%');
+	next.style('left', '50%');
+	next.style('transform', 'translate(-50%,-0%');
 
 	info = select('#info');
-	info.position(windowWidth / 8, windowHeight / 5);
+	// info.position(windowWidth / 8, windowHeight / 5);
 	info.style('text-align', 'center');
 	info.style('color', 'black');
 
@@ -43,5 +47,5 @@ function changeColor() {
 }
 
 function draw() {
-	clear();
+	background(30);
 }
