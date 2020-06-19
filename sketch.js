@@ -1,13 +1,8 @@
 let canvas;
-// let p1, p2;
-let font,
-	fontsize = 15;
-let x, y;
-
-function preload() {
-	// font = loadFont('assets/Fipps-Regular.otf');
-	font = loadFont('assets/Pixellari.ttf');
-}
+let next;
+let bg_trophy;
+let paragraphs;
+let info;
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
@@ -17,47 +12,36 @@ function windowResized() {
 function setup() {
 	canvas = createCanvas(windowWidth, windowHeight);
 	canvas.position(0, 0);
-	canvas.style('z-index', '1');
+	canvas.style('z-index', '-1');
 
-	// Set text characteristics
-	textFont(font);
-	// textSize(fontsize);
-	textAlign(CENTER, CENTER);
+	next = select('#next');
+	next.position(windowWidth / 2, 5);
+	next.style('font-size', '1.5em');
+	setInterval(changeColor, 500);
 
-	// p1 = createP('Germany is the 3rd most');
-	// p2 = createP('surveilled country worlwide!'); 
-	// p1.position(windowWidth / 8, windowHeight / 5);
-	// p2.position(windowWidth / 8, (windowHeight / 5) + 70);
-	// p1.style('font-size', '2vw');
-	// p2.style('font-size', '2em');
-	// p1.style('font-family', '"geekyFont"');
+	info = select('#info');
+	info.position(windowWidth / 8, windowHeight / 5);
+	info.style('text-align', 'center');
+	info.style('color', 'black');
 
-	if (windowWidth > 700) {
-		x = 300;
-		y = 150;
-	} else {
-		x = 100;
-		y = 200;
+	paragraphs = selectAll('.paragraph');
+	for (let p of paragraphs) {
+		p.style('font-size', '1.5em');
+		p.style('font-family', 'courier');
 	}
+	paragraphs[0].style('position', 'absolute');
+	paragraphs[0].style('top', '15%');
+	paragraphs[0].style('left', '25%');
+	paragraphs[0].style('transform', 'translate(-15%,-25%');
+	paragraphs[0].style('background-color', 'rgba(255, 255, 255, 0.7)');
+}
+
+function changeColor() {
+	let colors = ['Red', 'Orange', 'Yellow', 'MediumSpringGreen', 'RoyalBlue', 'Purple', 'Pink', 'LightCyan'];
+	let col = random(colors);
+	next.style('background-color', col);
 }
 
 function draw() {
-	let s = "GERMANY IS THE 3rd WORLD'S MOST SURVEILLED COUNTRIES WITH 5.2 MILLIONS CCTVs!";
-	noStroke();
-	rectMode(CENTER);
-	fill(255);
-	// Maybe instead of windowWidth, make the width and height proportional to the fontsize?
-	rect(x, y, windowWidth / 3, (2 * windowHeight) / 5);
-	fill(0);
-	textSize(fontsize);
-	text(s, x, y, windowWidth / 5, windowHeight / 3);
-}
-
-function getRandomColor() {
-	let red = random(255);
-	let green = random(255);
-	let blue = random(255);
-	let c = color(red, green, blue);
-
-	return c;
+	clear();
 }
